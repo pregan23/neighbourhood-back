@@ -48,8 +48,8 @@ Bring home the utility of social networks without the baggage.
 ### **_Future Updates_**
 
 - [ ] Deployment in multiple neighborhoods
-- [ ] 
-- [x] Trello
+- [ ] GPS features
+
 
 ### **_Credits_**
 
