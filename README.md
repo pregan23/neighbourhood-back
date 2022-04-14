@@ -4,7 +4,7 @@ Bring home the utility of social networks without the baggage.
 
 ## Date 4/15/2022
 
-### By: Alissa Wiley, Dan Ventura, Patrick Regan [Github](https://github.com/pregan23)
+### By: [Alissa Wiley](https://github.com/alissaestelle), [Dan Ventura](https://github.com/dventura221), [Patrick Regan](https://github.com/pregan23)
 
 [Trello](https://trello.com/b/qnhB2qO3/the-neighbourhood)
 
