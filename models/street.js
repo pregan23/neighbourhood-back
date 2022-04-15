@@ -28,8 +28,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
       },
     
-    isEdited: DataTypes.BOOLEAN,
-    defaultValue: false
+    isEdited: {
+      type:DataTypes.BOOLEAN,
+      defaultValue: false
+  }
   }, {
     sequelize,
     modelName: 'Street',

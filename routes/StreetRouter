@@ -1,0 +1,6 @@
+const Router = require('express').Router()
+const controller = require('../controllers/StreetController')
+
+Router.post('/:id/new', controller.CreateStreet)
+
+module.exports = Router
