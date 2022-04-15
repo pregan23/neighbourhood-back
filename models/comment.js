@@ -33,7 +33,10 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id'
       }
     },
-    isEdited: DataTypes.BOOLEAN
+    isEdited: {
+      type:DataTypes.BOOLEAN,
+      defaultValue: false
+  }
   }, {
     sequelize,
     modelName: 'Comment',
