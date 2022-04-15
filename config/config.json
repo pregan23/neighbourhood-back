@@ -1,0 +1,20 @@
+{
+  "development": {
+
+    "database": "neighbourhood",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+
+    "database": "neighbourhood_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+
+    "database": "neighbourhood_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
