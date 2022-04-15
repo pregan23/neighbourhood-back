@@ -16,6 +16,21 @@ const CreateComment = async (req, res) => {
     }
 }
 
+const GetStreetsComments = async (req, res) => {
+    try {
+        let streetId = req.params.streetid
+        let streetsComments = await Comment.findAll({
+            where:{
+                streetId
+            }
+        })
+        res.send(streetsComments)
+    } catch (error) {
+        throw error
+    }
+}
+
 module.exports = {
-    CreateComment
+    CreateComment,
+    GetStreetsComments
 } 
