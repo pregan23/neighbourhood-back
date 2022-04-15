@@ -10,20 +10,37 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      User.hasMany(models.Street, {foreignKey: 'authorId'});
+      User.hasMany(models.Comment, {foreignKey: 'authorId'})
     }
   }
   User.init({
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    zipcode: DataTypes.INTEGER,
+    firstName: {
+      type:DataTypes.STRING,
+      allowNull: false,
+      },
+    lastName: {
+      type:DataTypes.STRING,
+      allowNull: false,
+      },
+    zipcode: {
+      type:DataTypes.INTEGER,
+      allowNull: false,
+      },
     age: DataTypes.INTEGER,
-    userName: DataTypes.STRING,
-    password: DataTypes.STRING,
+    userName: {
+      type:DataTypes.STRING,
+      allowNull: false,
+        unique: true},
+    passwordDigest: {
+      type:DataTypes.STRING,
+      allowNull: false,
+      },
     avatar: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'User',
+    tableName: 'users'
   });
   return User;
 };

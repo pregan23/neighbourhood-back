@@ -1,21 +1,29 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Streets', {
+    await queryInterface.createTable('streets', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      authorId: {
-        type: Sequelize.INTEGER
+      authorId:
+        {
+          type:Sequelize.INTEGER,
+          onDelete: 'CASCADE',
+          references: {
+            model: 'users',
+            key: 'id'
+          }
       },
       content: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       isEdited: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       createdAt: {
         allowNull: false,
@@ -28,6 +36,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Streets');
+    await queryInterface.dropTable('streets');
   }
 };
