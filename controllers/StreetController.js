@@ -1,4 +1,4 @@
-const { Street } = require('../models')
+const { Street, StreetLike } = require('../models')
 
 const CreateStreet = async (req, res) => {
     try {
@@ -23,7 +23,31 @@ const GetAllStreets = async (req, res) => {
     }
 }
 
+// const GetLikedStreets = async (req, res) => {
+//     try{
+//         const likedStreets = await Street.findAll({
+//             where:
+//         })
+//     }
+// }
+
+const LikeStreet = async (req, res) => {
+    try {
+        let userId = req.params.id
+        let streetId = req.params.streetid
+        let likeBody = {
+            userId,
+            streetId
+        }
+        let newStreetLike = await StreetLike.create(likeBody)
+        res.send(newStreetLike)
+    }   catch (error) {
+        throw error
+    }
+}
+
 module.exports = {
     CreateStreet,
-    GetAllStreets
+    GetAllStreets,
+    LikeStreet
 }
