@@ -1,4 +1,4 @@
-const { Comment } = require('../models')
+const { Comment, CommentLike } = require('../models')
 
 const CreateComment = async (req, res) => {
     try {
@@ -30,7 +30,23 @@ const GetStreetsComments = async (req, res) => {
     }
 }
 
+const LikeComment = async (req, res) => {
+    try {
+        let userId = req.params.id
+        let commentId = req.params.commentid
+        let likeBody = {
+            userId,
+            commentId
+        }
+        let newCommentLike = await CommentLike.create(likeBody)
+        res.send(newCommentLike)
+    }   catch (error) {
+        throw error
+    }
+}
+
 module.exports = {
     CreateComment,
-    GetStreetsComments
+    GetStreetsComments,
+    LikeComment
 } 
