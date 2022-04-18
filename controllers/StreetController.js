@@ -1,4 +1,5 @@
-const { Street, StreetLike } = require('../models')
+const { user } = require('pg/lib/defaults')
+const { Street, StreetLike, User } = require('../models')
 
 const CreateStreet = async (req, res) => {
     try {
@@ -16,7 +17,9 @@ const CreateStreet = async (req, res) => {
 
 const GetAllStreets = async (req, res) => {
     try{
-        const streets = await Street.findAll()
+        const streets = await Street.findAll({
+            include: User
+        })
         res.send(streets)
     }catch (error) {
         throw error

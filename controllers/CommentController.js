@@ -1,4 +1,4 @@
-const { Comment, CommentLike } = require('../models')
+const { Comment, CommentLike, User } = require('../models')
 
 const CreateComment = async (req, res) => {
     try {
@@ -22,7 +22,8 @@ const GetStreetsComments = async (req, res) => {
         let streetsComments = await Comment.findAll({
             where:{
                 streetId
-            }
+            },
+            include: User
         })
         res.send(streetsComments)
     } catch (error) {
