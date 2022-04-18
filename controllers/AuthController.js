@@ -40,8 +40,10 @@ const Register = async (req, res) => {
   }
 
   const CheckSession = async (req, res) => {
-    const { payload } = res.locals
+    let { payload } = res.locals
+    console.log(payload)
     res.send(payload)
+    console.log('we there')
   }
   
 
