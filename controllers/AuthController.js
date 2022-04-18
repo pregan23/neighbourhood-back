@@ -2,20 +2,24 @@ const { User } = require('../models')
 const middleware = require('../middleware')
 
 const Login = async (req, res) => {
-  try {
-    const user = await User.findOne({
-      where: { userName: req.body.userName },
-      raw: true
-    })
-    if (
-      user &&
-      (await middleware.comparePassword(user.passwordDigest, req.body.password))
-    ) {
-      let payload = {
-        id: user.id,
-        userName: user.userName,
-        firstName: user.firstName,
-        avatar: user.avatar
+    try {
+      const user = await User.findOne({
+        where: { userName: req.body.userName },
+        raw: true
+      })
+      if (
+        user &&
+        (await middleware.comparePassword(user.passwordDigest, req.body.password))
+      ) {
+        let payload = {
+          id: user.id,
+          userName: user.userName,
+          firstName: user.firstName,
+          avatar: user.avatar
+
+        }
+        let token = middleware.createToken(payload)
+        return res.send({ user: payload, token })
       }
       let token = middleware.createToken(payload)
       return res.send({ user: payload, token })
