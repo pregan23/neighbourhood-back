@@ -14,5 +14,8 @@ Router.post('/:id/like/:commentid', middleware.stripToken,
 Router.delete('/:id/delete/:commentid', middleware.stripToken,
                                         middleware.verifyToken,
                                         controller.DeleteComment)
+Router.put('/:id/update/:commentid', middleware.stripToken,
+                                        middleware.verifyToken,
+                                        controller.UpdateComment)
 
 module.exports = Router
