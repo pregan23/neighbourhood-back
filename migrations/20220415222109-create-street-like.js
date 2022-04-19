@@ -18,6 +18,7 @@ module.exports = {
       },
       streetId: {
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         references: {
           model: 'streets',
           key: 'id'

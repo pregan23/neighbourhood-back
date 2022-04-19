@@ -11,4 +11,8 @@ Router.get('/feed', middleware.stripToken,
 Router.post('/:id/like/:streetid',  middleware.stripToken,
                                     middleware.verifyToken,
                                     controller.LikeStreet)
+
+Router.delete('/:id/delete/:streetid', middleware.stripToken,
+                                        middleware.verifyToken,
+                                        controller.DeleteStreet)
 module.exports = Router
