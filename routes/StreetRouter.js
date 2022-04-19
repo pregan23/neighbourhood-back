@@ -11,6 +11,9 @@ Router.get('/feed', middleware.stripToken,
 Router.post('/:id/like/:streetid',  middleware.stripToken,
                                     middleware.verifyToken,
                                     controller.LikeStreet)
+Router.get('/:id/like/:streetid', middleware.stripToken,
+                                    middleware.verifyToken,
+                                    controller.CheckLike)
 
 Router.delete('/:id/delete/:streetid', middleware.stripToken,
                                         middleware.verifyToken,
