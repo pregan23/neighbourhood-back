@@ -46,8 +46,26 @@ const LikeComment = async (req, res) => {
     }
 }
 
+const DeleteComment = async (req, res) => {
+    try {
+        let authorId = req.params.id
+        let id = req.params.commentid
+        let deleted = await Comment.destroy({
+            where: {
+                authorId,
+                id
+
+            }
+        })
+        res.status(200).send('deleted')
+    } catch (error) {
+        throw error
+}
+}
+
 module.exports = {
     CreateComment,
     GetStreetsComments,
-    LikeComment
+    LikeComment,
+    DeleteComment
 } 

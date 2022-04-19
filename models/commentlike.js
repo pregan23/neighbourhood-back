@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     commentId: {
       type:DataTypes.INTEGER,
+      onDelete: 'CASCADE',
       references: {
         model: 'comments',
         key: 'id'

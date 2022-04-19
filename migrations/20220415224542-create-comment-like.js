@@ -18,6 +18,7 @@ module.exports = {
       },
       commentId: {
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         references: {
           model: 'comments',
           key: 'id'
