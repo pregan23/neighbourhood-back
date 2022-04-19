@@ -11,6 +11,9 @@ Router.get('/:streetid', middleware.stripToken,
 Router.post('/:id/like/:commentid', middleware.stripToken,
                                     middleware.verifyToken,
                                     controller.LikeComment)
+Router.get('/:id/like/:commentid', middleware.stripToken,
+                                    middleware.verifyToken,
+                                    controller.CheckLike)
 Router.delete('/:id/delete/:commentid', middleware.stripToken,
                                         middleware.verifyToken,
                                         controller.DeleteComment)

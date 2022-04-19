@@ -58,6 +58,27 @@ const LikeStreet = async (req, res) => {
     }
 }
 
+const CheckLike = async (req, res) => {
+    try {
+        let userId = req.params.id
+        let streetId = req.params.streetid
+        let likeBody = {
+            userId,
+            streetId
+        }
+        let alreadyLiked = await StreetLike.count({where: likeBody})
+        if (alreadyLiked>0) {
+            res.send('already liked')
+        }
+        else {
+            res.send('not yet liked')
+        }
+    } catch (error) {
+        throw error
+}
+}
+
+
 const DeleteStreet = async (req, res) => {
     try {
         let authorId = req.params.id
@@ -98,5 +119,6 @@ module.exports = {
     GetAllStreets,
     LikeStreet,
     DeleteStreet,
-    UpdateStreet
+    UpdateStreet,
+    CheckLike
 }
