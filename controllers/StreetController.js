@@ -49,8 +49,26 @@ const LikeStreet = async (req, res) => {
     }
 }
 
+const DeleteStreet = async (req, res) => {
+    try {
+        let authorId = req.params.id
+        let id = req.params.streetid
+        let deleted = await Street.destroy({
+            where: {
+                authorId,
+                id
+
+            }
+        })
+        res.status(200).send('deleted')
+    } catch (error) {
+        throw error
+}
+}
+
 module.exports = {
     CreateStreet,
     GetAllStreets,
-    LikeStreet
+    LikeStreet,
+    DeleteStreet
 }
