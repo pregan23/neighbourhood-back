@@ -18,7 +18,8 @@ const CreateStreet = async (req, res) => {
 const GetAllStreets = async (req, res) => {
     try{
         const streets = await Street.findAll({
-            include: User
+            include: [{model: User},{model: StreetLike}]
+            
         })
         res.send(streets)
     }catch (error) {
@@ -81,6 +82,8 @@ const UpdateStreet = async (req, res) => {
         throw error
 }
 }
+
+
 
 module.exports = {
     CreateStreet,

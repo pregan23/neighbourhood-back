@@ -23,7 +23,7 @@ const GetStreetsComments = async (req, res) => {
             where:{
                 streetId
             },
-            include: User
+            include:[{model: User}, {model: CommentLike}]
         })
         res.send(streetsComments)
     } catch (error) {
@@ -78,6 +78,7 @@ const UpdateComment = async (req, res) => {
         throw error
 }
 }
+
 
 module.exports = {
     CreateComment,
