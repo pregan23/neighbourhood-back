@@ -18,6 +18,7 @@ const CreateStreet = async (req, res) => {
 const GetAllStreets = async (req, res) => {
     try{
         const streets = await Street.findAll({
+            order: ['createdAt'],
             include: [{model: User},{model: StreetLike}]
             
         })
