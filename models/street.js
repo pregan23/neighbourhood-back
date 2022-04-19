@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Street.belongsTo(models.User, {foreignKey: 'authorId'})
       Street.hasMany(models.Comment, {foreignKey: 'streetId'})
+      Street.hasMany(models.StreetLike, {foreignKey: 'streetId'})
     }
   }
   Street.init({
