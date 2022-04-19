@@ -63,9 +63,26 @@ const DeleteComment = async (req, res) => {
 }
 }
 
+const UpdateComment = async (req, res) => {
+    try{
+        let id = req.params.commentid
+        let authorId = req.params.id
+        let updated = await Comment.update(req.body,{
+            where: { authorId,
+                     id
+            }
+        }
+        )
+        res.send(updated)
+    } catch (error) {
+        throw error
+}
+}
+
 module.exports = {
     CreateComment,
     GetStreetsComments,
     LikeComment,
-    DeleteComment
+    DeleteComment,
+    UpdateComment
 } 

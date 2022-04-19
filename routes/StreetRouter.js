@@ -15,4 +15,8 @@ Router.post('/:id/like/:streetid',  middleware.stripToken,
 Router.delete('/:id/delete/:streetid', middleware.stripToken,
                                         middleware.verifyToken,
                                         controller.DeleteStreet)
+
+Router.put('/:id/update/:streetid', middleware.stripToken,
+                                    middleware.verifyToken,
+                                    controller.UpdateStreet)
 module.exports = Router

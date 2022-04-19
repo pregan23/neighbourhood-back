@@ -66,9 +66,26 @@ const DeleteStreet = async (req, res) => {
 }
 }
 
+const UpdateStreet = async (req, res) => {
+    try{
+        let id = req.params.streetid
+        let authorId = req.params.id
+        let updated = await Street.update(req.body, {
+            where: { authorId,
+                     id
+            }
+        }
+        )
+        res.send(updated)
+    } catch (error) {
+        throw error
+}
+}
+
 module.exports = {
     CreateStreet,
     GetAllStreets,
     LikeStreet,
-    DeleteStreet
+    DeleteStreet,
+    UpdateStreet
 }
