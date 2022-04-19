@@ -40,8 +40,15 @@ const LikeComment = async (req, res) => {
             userId,
             commentId
         }
-        let newCommentLike = await CommentLike.create(likeBody)
-        res.send(newCommentLike)
+        let alreadyLiked = await CommentLike.count({where: likeBody})
+        if (alreadyLiked>0) {
+            res.send('already liked')
+        }
+        else{
+            let newCommentLike = await CommentLike.create(likeBody)
+            res.send(newCommentLike)
+        }
+        
     }   catch (error) {
         throw error
     }

@@ -44,8 +44,15 @@ const LikeStreet = async (req, res) => {
             userId,
             streetId
         }
+        let alreadyLiked = await StreetLike.count({where: likeBody})
+        console.log(alreadyLiked)
+        if (alreadyLiked>0) {
+            res.send('already liked')
+        }
+        else {
         let newStreetLike = await StreetLike.create(likeBody)
         res.send(newStreetLike)
+        }
     }   catch (error) {
         throw error
     }
