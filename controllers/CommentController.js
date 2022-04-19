@@ -23,6 +23,7 @@ const GetStreetsComments = async (req, res) => {
             where:{
                 streetId
             },
+            order: ['createdAt'],
             include:[{model: User}, {model: CommentLike}]
         })
         res.send(streetsComments)
