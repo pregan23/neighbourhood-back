@@ -39,6 +39,21 @@ const Register = async (req, res) => {
     }
   }
 
+const UpdatePassword = async (req, res) => {
+  try {
+    let { password } = req.body
+    let id  = parseInt(req.params.id)
+    console.log(id)
+    let passwordDigest = await middleware.hashPassword(password)
+    let updated = await User.update({passwordDigest}, {
+      where: { id }
+    })
+    res.send(updated)
+  } catch (error) {
+    throw error
+}
+}
+
   const CheckSession = async (req, res) => {
     let { payload } = res.locals
     console.log(payload)
@@ -63,5 +78,6 @@ module.exports = {
   Login,
   Register,
   CheckSession,
-  UpdateAvatar
+  UpdateAvatar,
+  UpdatePassword
 }
