@@ -120,7 +120,7 @@ const CheckLike = async (req, res) => {
         }
         let alreadyLiked = await StreetLike.count({where: likeBody})
         if (alreadyLiked>0) {
-            res.send(alreadyLiked)
+            res.json(alreadyLiked)
         }
         else {
             res.send('not yet liked')
