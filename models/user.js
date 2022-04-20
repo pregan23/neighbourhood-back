@@ -38,7 +38,10 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       allowNull: false,
       },
-    avatar: DataTypes.STRING
+    avatar: {
+      type: DataTypes.STRING,
+      defaultValue:'https://icons.iconarchive.com/icons/google/noto-emoji-objects/1024/62895-closed-mailbox-with-raised-flag-icon.png',
+    }
   }, {
     sequelize,
     modelName: 'User',
