@@ -99,6 +99,17 @@ const UnlikeStreet = async (req, res) => {
     }
 }
 
+const LikeCount = async (req, res) => {
+   try {
+    let streetId = req.params.streetid
+    let howMany = await StreetLike.count({where: {streetId}})
+    console.log(howMany)
+    res.json({number: howMany})
+   } catch (error) {
+    throw error
+}
+}
+
 const CheckLike = async (req, res) => {
     try {
         let userId = req.params.id
@@ -109,7 +120,7 @@ const CheckLike = async (req, res) => {
         }
         let alreadyLiked = await StreetLike.count({where: likeBody})
         if (alreadyLiked>0) {
-            res.send('already liked')
+            res.send(alreadyLiked)
         }
         else {
             res.send('not yet liked')
@@ -164,5 +175,6 @@ module.exports = {
     CheckLike,
     GetLikedStreets,
     GetMyStreets,
-    UnlikeStreet
+    UnlikeStreet,
+    LikeCount
 }

@@ -123,6 +123,17 @@ const CheckLike = async (req, res) => {
 }
 }
 
+const LikeCount = async (req, res) => {
+    try {
+     let commentId = req.params.commentid
+     let howMany = await CommentLike.count({where: {commentId}})
+     console.log(howMany)
+     res.json({number: howMany})
+    } catch (error) {
+     throw error
+ }
+ }
+
 const DeleteComment = async (req, res) => {
     try {
         let authorId = req.params.id
@@ -166,5 +177,6 @@ module.exports = {
     CheckLike,
     GetLikedComments,
     GetMyComments,
-    UnlikeComment
+    UnlikeComment,
+    LikeCount
 } 

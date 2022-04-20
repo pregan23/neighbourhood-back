@@ -8,6 +8,9 @@ Router.post('/:id/:streetid/new', middleware.stripToken,
 Router.get('/:streetid', middleware.stripToken,
                             middleware.verifyToken,
                             controller.GetStreetsComments)
+Router.get('/like/:commentid', middleware.stripToken,
+                            middleware.verifyToken,
+                            controller.LikeCount)
 Router.post('/:id/like/:commentid', middleware.stripToken,
                                     middleware.verifyToken,
                                     controller.LikeComment)
