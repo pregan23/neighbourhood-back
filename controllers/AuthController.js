@@ -45,10 +45,23 @@ const Register = async (req, res) => {
     res.send(payload)
     console.log('we there')
   }
+
+  const UpdateAvatar = async (req, res) => {
+    try {
+    let id = req.params.id
+    let updated = await User.update(req.body, {
+      where: { id }
+    })
+    res.send(updated)
+  } catch (error) {
+    throw error
+}
+}
   
 
 module.exports = {
   Login,
   Register,
-  CheckSession
+  CheckSession,
+  UpdateAvatar
 }
