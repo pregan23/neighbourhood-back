@@ -28,6 +28,18 @@ const GetAllStreets = async (req, res) => {
     }
 }
 
+const GetMyStreets = async (req, res) => {
+    try{
+        let authorId = req.params.id
+        const streets = await Street.findAll({
+            where:{authorId}
+        })
+        res.send(streets)
+    } catch (error) {
+        throw error
+    }
+}
+
 const GetLikedStreets = async (req, res) => {
     try{
         let userId = req.params.id
@@ -126,5 +138,6 @@ module.exports = {
     DeleteStreet,
     UpdateStreet,
     CheckLike,
-    GetLikedStreets
+    GetLikedStreets,
+    GetMyStreets
 }

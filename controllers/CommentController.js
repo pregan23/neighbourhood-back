@@ -67,6 +67,18 @@ const GetLikedComments = async (req, res) => {
     }
 }
 
+const GetMyComments = async (req, res) => {
+    try{
+        let authorId = req.params.id
+        const comments = await Comment.findAll({
+            where:{authorId}
+        })
+        res.send(comments)
+    } catch (error) {
+        throw error
+    }
+}
+
 const CheckLike = async (req, res) => {
     try {
         let userId = req.params.id
@@ -128,5 +140,6 @@ module.exports = {
     DeleteComment,
     UpdateComment,
     CheckLike,
-    GetLikedComments
+    GetLikedComments,
+    GetMyComments
 } 
