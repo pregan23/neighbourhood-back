@@ -17,6 +17,9 @@ Router.delete('/:id/like/:streetid', middleware.stripToken,
 Router.get('/:id/like/:streetid', middleware.stripToken,
                                     middleware.verifyToken,
                                     controller.CheckLike)
+Router.get('/like/:streetid', middleware.stripToken,
+                                middleware.verifyToken,
+                                controller.LikeCount)
 
 Router.delete('/:id/delete/:streetid', middleware.stripToken,
                                         middleware.verifyToken,
