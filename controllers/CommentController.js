@@ -54,6 +54,30 @@ const LikeComment = async (req, res) => {
     }
 }
 
+const UnlikeComment = async (req, res) => {
+    try {
+        let userId = req.params.id
+        let commentId = req.params.commentid
+        let likeBody = {
+            userId,
+            commentId
+        }
+        let alreadyLiked = await CommentLike.count({where: likeBody})
+        if (alreadyLiked>0) {
+            let unliked = await CommentLike.destroy({where: likeBody})
+            res.status(200).send('unliked')
+        }
+        else{
+            
+            res.status(200).send('not yet liked')
+        }
+        
+
+    }  catch (error) {
+        throw error
+    }
+}
+
 const GetLikedComments = async (req, res) => {
     try{
         let userId = req.params.id
@@ -141,5 +165,6 @@ module.exports = {
     UpdateComment,
     CheckLike,
     GetLikedComments,
-    GetMyComments
+    GetMyComments,
+    UnlikeComment
 } 

@@ -75,6 +75,30 @@ const LikeStreet = async (req, res) => {
     }
 }
 
+const UnlikeStreet = async (req, res) => {
+    try {
+        let userId = req.params.id
+        let streetId = req.params.streetid
+        let likeBody = {
+            userId,
+            streetId
+        }
+        let alreadyLiked = await StreetLike.count({where: likeBody})
+        if (alreadyLiked>0) {
+            let unliked = await StreetLike.destroy({where: likeBody})
+            res.status(200).send('unliked')
+        }
+        else{
+            
+            res.status(200).send('not yet liked')
+        }
+        
+
+    }  catch (error) {
+        throw error
+    }
+}
+
 const CheckLike = async (req, res) => {
     try {
         let userId = req.params.id
@@ -139,5 +163,6 @@ module.exports = {
     UpdateStreet,
     CheckLike,
     GetLikedStreets,
-    GetMyStreets
+    GetMyStreets,
+    UnlikeStreet
 }
