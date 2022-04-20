@@ -20,5 +20,8 @@ Router.delete('/:id/delete/:commentid', middleware.stripToken,
 Router.put('/:id/update/:commentid', middleware.stripToken,
                                         middleware.verifyToken,
                                         controller.UpdateComment)
+Router.get('/:id/mylikes', middleware.stripToken,
+                            middleware.verifyToken,
+                            controller.GetLikedComments)
 
 module.exports = Router

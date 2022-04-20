@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       StreetLike.belongsTo(models.User, {foreignKey: 'userId'})
+      StreetLike.belongsTo(models.Street, {foreignKey: 'streetId'})
     }
   }
   StreetLike.init({

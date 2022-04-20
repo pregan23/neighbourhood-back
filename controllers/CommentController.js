@@ -54,6 +54,19 @@ const LikeComment = async (req, res) => {
     }
 }
 
+const GetLikedComments = async (req, res) => {
+    try{
+        let userId = req.params.id
+        let likedComments = await CommentLike.findAll({
+            where: { userId },
+            include: Comment
+        })
+        res.send(likedComments)
+    } catch (error) {
+        throw error
+    }
+}
+
 const CheckLike = async (req, res) => {
     try {
         let userId = req.params.id
@@ -114,5 +127,6 @@ module.exports = {
     LikeComment,
     DeleteComment,
     UpdateComment,
-    CheckLike
+    CheckLike,
+    GetLikedComments
 } 

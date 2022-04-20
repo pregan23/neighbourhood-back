@@ -22,4 +22,7 @@ Router.delete('/:id/delete/:streetid', middleware.stripToken,
 Router.put('/:id/update/:streetid', middleware.stripToken,
                                     middleware.verifyToken,
                                     controller.UpdateStreet)
+Router.get('/:id/mylikes', middleware.stripToken,
+                            middleware.verifyToken,
+                            controller.GetLikedStreets)
 module.exports = Router
