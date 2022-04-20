@@ -25,4 +25,7 @@ Router.put('/:id/update/:streetid', middleware.stripToken,
 Router.get('/:id/mylikes', middleware.stripToken,
                             middleware.verifyToken,
                             controller.GetLikedStreets)
+Router.get('/:id/mystreets', middleware.stripToken,
+                            middleware.verifyToken,
+                            controller.GetMyStreets)
 module.exports = Router

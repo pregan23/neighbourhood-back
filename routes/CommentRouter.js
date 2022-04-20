@@ -23,5 +23,8 @@ Router.put('/:id/update/:commentid', middleware.stripToken,
 Router.get('/:id/mylikes', middleware.stripToken,
                             middleware.verifyToken,
                             controller.GetLikedComments)
+Router.get('/:id/mycomments', middleware.stripToken,
+                                middleware.verifyToken,
+                                controller.GetMyComments)
 
 module.exports = Router
