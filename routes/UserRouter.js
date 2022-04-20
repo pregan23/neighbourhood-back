@@ -7,5 +7,8 @@ Router.post('/login', controller.Login)
 Router.get('/session', middleware.stripToken,
                         middleware.verifyToken,
                         controller.CheckSession)
+Router.put('/:id/avatar', middleware.stripToken,
+                            middleware.verifyToken,
+                            controller.UpdateAvatar)
 
 module.exports = Router
