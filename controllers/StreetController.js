@@ -1,5 +1,5 @@
 const { user } = require('pg/lib/defaults')
-const { Street, StreetLike, User } = require('../models')
+const { Street, StreetLike, User, Comment } = require('../models')
 
 const CreateStreet = async (req, res) => {
     try {
@@ -110,6 +110,17 @@ const LikeCount = async (req, res) => {
 }
 }
 
+const CommentCount = async (req, res) => {
+    try {
+     let streetId = parseInt(req.params.streetid)
+     let howMany = await Comment.count({where: {streetId}})
+     console.log(howMany)
+     res.json({number: howMany})
+    } catch (error) {
+     throw error
+ }
+ }
+
 const CheckLike = async (req, res) => {
     try {
         let userId = req.params.id
@@ -176,5 +187,6 @@ module.exports = {
     GetLikedStreets,
     GetMyStreets,
     UnlikeStreet,
-    LikeCount
+    LikeCount,
+    CommentCount
 }
