@@ -34,4 +34,7 @@ Router.get('/:id/mylikes', middleware.stripToken,
 Router.get('/:id/mystreets', middleware.stripToken,
                             middleware.verifyToken,
                             controller.GetMyStreets)
+Router.get('/:streetid/comments', middleware.stripToken,
+                            middleware.verifyToken,
+                            controller.CommentCount)
 module.exports = Router
