@@ -7,6 +7,7 @@ Bring home the utility of social networks without the baggage.
 ### By: [Alissa Wiley](https://github.com/alissaestelle), [Dan Ventura](https://github.com/dventura221), and [Patrick Regan](https://github.com/pregan23)
 
 [Trello](https://trello.com/b/qnhB2qO3/the-neighbourhood)
+[Front-End](https://github.com/pregan23/neighbourhood-front)
 
 ---
 
