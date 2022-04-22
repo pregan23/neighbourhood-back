@@ -1,4 +1,4 @@
-# **_NeighboUrhood_**
+# **_Neighbourly**
 Bring home the utility of social networks without the baggage.
 
 
