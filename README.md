@@ -15,7 +15,7 @@ Bring home the utility of social networks without the baggage.
 
 ---
 
-### **NeighboUrhood is a community oriented social network that we are testing in Pern Place.  Users can make posts, known as Streets, and other users can comment on them.  The heart of NeighboUrhood is free-form communication within your community, with space set aside for the clutter of the world at large.  Only those with a Pern Place zipcode will be able to sign up for the platform so the discourse will be driven by community members themselves, rather than larger trends.**
+### **Neighbourly is a community oriented social network that we are testing in Pern Place.  Users can make posts, known as Streets, and other users can comment on them.  The heart of NeighboUrhood is free-form communication within your community, with space set aside for the clutter of the world at large.  Only those with a Pern Place zipcode will be able to sign up for the platform so the discourse will be driven by community members themselves, rather than larger trends.**
 
 ### **_Screenshots_**
 
